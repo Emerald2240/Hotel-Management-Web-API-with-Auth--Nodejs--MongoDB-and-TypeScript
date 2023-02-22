@@ -22,7 +22,7 @@ Before you can access the API, you need to create an account and login. Send a P
 4. password &
 5. user_type(user or admin)
 
-Once succesfully registered, go to: **localhost:5000/api/v1/auth/login**; supply it your email and password; you'll get a refresh token and access token, pass in the access token to the authorization header before making any requests, depending on your user type you should have access to most of the API resources.
+Once succesfully registered, go to: **localhost:5000/api/v1/auth/login**; supply it your email and password; you'll get a refresh token and access token, pass in the access token to the authorization header(Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXV....) before making any requests, depending on your user type you should have access to most of the API resources.
 
 ### Types of Inputs
 The API makes use of three main methods of sending inputs.
