@@ -350,7 +350,8 @@
   "scripts": {
     "test": "Error, no test specified",
     "dev": "npx nodemon",
-    "start": "ts-node app.ts"
+    "start": "ts-node app.ts",
+    "start-js":"node build/app.js"
   },
   "repository": {
     "type": "git",

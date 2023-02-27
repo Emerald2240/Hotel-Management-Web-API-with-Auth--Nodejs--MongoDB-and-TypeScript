@@ -17,7 +17,7 @@ const constants_1 = __importDefault(require("../constants"));
 const { MESSAGES } = constants_1.default;
 const authService = require("../services/auth.service");
 const joi = require("joi");
-const jwt = require('jsonwebtoken');
+const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 var user = [];
 var refreshTokenStore = '';
 class AuthController {
@@ -35,14 +35,14 @@ class AuthController {
                 else {
                     let envRefreshToken = process.env.REFRESH_TOKEN_SECRET;
                     //verify if refresh token is valid
-                    jwt.verify(refreshToken, envRefreshToken, (err, user) => {
+                    jsonwebtoken_1.default.verify(refreshToken, envRefreshToken, (err, user) => {
                         if (err) {
                             return res.status(403).send(err);
                         }
                         else {
                             let envAccessToken = process.env.ACCESS_TOKEN_SECRET;
                             //create a new access token
-                            const accessToken = jwt.sign(user, envAccessToken, { expiresIn: '10m' });
+                            const accessToken = jsonwebtoken_1.default.sign(user, envAccessToken, { expiresIn: '10m' });
                             res.json({ accessToken: accessToken });
                         }
                     });
@@ -70,8 +70,8 @@ class AuthController {
                 console.log(user);
                 if (user) {
                     //creates new access token and refresh token for the user
-                    const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '10m' });
-                    const refreshToken = jwt.sign(user, process.env.REFRESH_TOKEN_SECRET);
+                    const accessToken = jsonwebtoken_1.default.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '10m' });
+                    const refreshToken = jsonwebtoken_1.default.sign(user, process.env.REFRESH_TOKEN_SECRET);
                     refreshTokenStore = refreshToken;
                     res.status(200)
                         .json({ message: MESSAGES.LOGGED_IN, accessToken: accessToken, refreshToken: refreshToken });
