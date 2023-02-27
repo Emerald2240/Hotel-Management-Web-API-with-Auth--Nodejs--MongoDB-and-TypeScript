@@ -1,5 +1,5 @@
-const User = require("../models/UserModel");
-import bcryptEncrypter = require("bcrypt");
+const Userr = require("../models/UserModel");
+const bcryptEncrypter = require("bcrypt");
 
 class UserService {
 
@@ -15,29 +15,29 @@ class UserService {
 
         user.password = hashedPassword;
 
-        return await User.create(user);
+        return await Userr.create(user);
     }
 
     async getUser(email: string) {
         //Makes email search filter case insensitive and a lot more broad(even if search parameter isnt completely correct.)
         let emailRegexed = new RegExp(email, 'i');
 
-        return await User.findOne({ email: emailRegexed });
+        return await Userr.findOne({ email: emailRegexed });
     }
 
     async getAllUsers() {
-        return await User.find();
+        return await Userr.find();
     }
 
     async updateUserByEmail(email: string, data: any) {
 
         //makes email case insensitive
         let emailRegexed = new RegExp(email, 'i');
-        return await User.findOneAndUpdate({ email: emailRegexed }, data, { new: true });
+        return await Userr.findOneAndUpdate({ email: emailRegexed }, data, { new: true });
     }
 
     async deleteUser(email: string) {
-        return await User.findOneAndDelete({ email: email });
+        return await Userr.findOneAndDelete({ email: email });
     }
 }
 

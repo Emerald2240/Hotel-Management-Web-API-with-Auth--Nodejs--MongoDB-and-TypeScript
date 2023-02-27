@@ -4,14 +4,14 @@ import constants from "../constants";
 const { MESSAGES } = constants;
 const authService = require("../services/auth.service");
 import joi = require('joi');
-import jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken';
 
 var user: any = [];
 var refreshTokenStore = '';
 
 declare var process: {
     env: {
-        DATABASE_URI: string | jwt.Secret;
+        DATABASE_URI: string |jwt.Secret;
         ACCESS_TOKEN_SECRET: string | jwt.Secret;
         REFRESH_TOKEN_SECRET: string | jwt.Secret;
         ENV?: 'test' | 'dev' | 'prod';
