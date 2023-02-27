@@ -18,7 +18,7 @@ This project is a NodeJs/Vanilla JavaScript app that runs with Express. Download
 - create a new file named `.env` in root folder of the project.
 - Copy and paste the content of `.env.example` into `.env` and filling the value.
 - You are advice to use atlas for the `DATABASE_URL` key but local database url is fine
-- start the server in development by running: `npm run dev` and read the terminal output to make sure that the server is running and the database is connected properly
+- run `npm build` to build the Javascript files from Typescript; start the server in development with nodemon by running: `npm run dev` and read the terminal output to make sure that the server is running and the database is connected properly or use `npm run start` to run it directly without any extras (this mode is advised for live hosting).
 
 ## How to use the API and its Endpoints
 ### User Authentication
