@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "jest",
-    "dev": "nodemon app.js",
-    "start": "node app.js"
+    "dev": "npx nodemon",
+    "start": "ts-node app.ts"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
@@ -22,7 +22,11 @@
     "supertest": "^6.3.3"
   },
   "devDependencies": {
-    "@types/node": "^18.14.1",
+    "@types/bcrypt": "^5.0.0",
+    "@types/express": "^4.17.17",
+    "@types/jsonwebtoken": "^9.0.1",
+    "@types/node": "^18.14.2",
+    "ts-node": "^10.9.1",
     "typescript": "^4.9.5"
   }
 }
