@@ -97,6 +97,13 @@ class AuthController {
         }
     }
 
+    async confirmLoggedOut(){
+        if(refreshTokenStore != ''){
+            return false;
+        }else{
+            return true;
+        }
+    }
 }
 
 module.exports = new AuthController();

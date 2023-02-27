@@ -98,5 +98,15 @@ class AuthController {
             }
         });
     }
+    confirmLoggedOut() {
+        return __awaiter(this, void 0, void 0, function* () {
+            if (refreshTokenStore != '') {
+                return false;
+            }
+            else {
+                return true;
+            }
+        });
+    }
 }
 module.exports = new AuthController();
