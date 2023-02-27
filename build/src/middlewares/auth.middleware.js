@@ -21,7 +21,6 @@ const authenticateToken = (req, res, next) => __awaiter(void 0, void 0, void 0, 
     const user = req.body.user;
     const token = authHeader && authHeader.split(' ')[1];
     let loggedOut = yield authController.confirmLoggedOut();
-    console.log(loggedOut);
     if (!loggedOut) {
         if (token == null) {
             return res.status(401).send({ message: "Missing access token. Pass it in the headers: Auth section. In this format: 'Bearer sdfweuwe324wrw324sxs...'" });
@@ -36,7 +35,7 @@ const authenticateToken = (req, res, next) => __awaiter(void 0, void 0, void 0, 
         }
     }
     else {
-        return res.status(403).send({ message: "Please Log in", success: false });
+        return res.status(403).send({ message: "Please Log in first", success: false });
     }
 });
 module.exports = authenticateToken;

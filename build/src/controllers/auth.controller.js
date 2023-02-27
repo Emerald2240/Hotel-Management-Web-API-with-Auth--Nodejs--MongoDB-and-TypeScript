@@ -67,7 +67,7 @@ class AuthController {
                 const value = yield joiSchema.validateAsync({ email: req.body.email, password: req.body.password });
                 //pass the data to the login service module
                 user = yield authService.login(req.body.email, req.body.password);
-                console.log(user);
+                // console.log(user);
                 if (user) {
                     //creates new access token and refresh token for the user
                     const accessToken = jsonwebtoken_1.default.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '10m' });

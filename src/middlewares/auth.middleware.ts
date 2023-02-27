@@ -25,7 +25,7 @@ const authenticateToken = async (req: express.Request, res: express.Response, ne
             });
         }
     } else {
-        return res.status(403).send({ message: "Please Log in", success: false });
+        return res.status(403).send({ message: "Please Log in first", success: false });
     }
 }
 
